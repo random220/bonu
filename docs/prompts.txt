@@ -1,0 +1,61 @@
+I need to write a Javascript app to run on a browser. I know nothing of Javascript. So I am going to go step by step and ask one thing at a time. Please be as helpful as you can.
+
+First:
+    I need to show a search bar (text input field) on the screen at the top.
+    When I start typing it should match from a database and start should the match somehow on the screen.
+
+    The database to match from is really small at this time
+
+    ```csv
+    id,#,Category,Item,Qty,Unit,Mfg Date,Exp Date
+    13945,1,Drug,Injection Enrofloxacin 100 mg. /ml. I.P.,40,50 ml.Vial,01/04/2023,31/03/2025
+    13948,2,Drug,Tablet Enrofloxacin. 50 mg.,200,10 tablets Strip,01/07/2023,30/06/2025
+    ```
+
+Could you give me the html, CSS and javascritpt code for it please?
+---
+
+So, my sister is a vet. She needs to keep track of drugs used up during treatment throughout the day preferably on her phone. Like a log book, but without much fuss or typying.
+I am thinking of writing a phone app for that.
+
+The data is like the following. Let's call this table the SUPPLY table
+
+```
+id,#,Category,Item,Qty,Unit,Mfg Date,Exp Date
+13945,1,Drug,Injection Enrofloxacin 100 mg. /ml. I.P.,40,50 ml.Vial,01/04/2023,31/03/2025
+13948,2,Drug,Tablet Enrofloxacin. 50 mg.,200,10 tablets Strip,01/07/2023,30/06/2025
+13951,3,Drug,Enrofloxacin Oral 50 mg per ml,50,100 ml. Bottle,01/08/2023,01/07/2025
+13954,4,Drug,Injection Cefotaxime Sodium USP,150,500 mg. Vial,01/07/2023,30/06/2025
+13957,5,Drug,Injection Ceftriaxone 2000 mg +Tazobactam 250 mg. I.P.,45,2250 mg. Vial,01/07/2023,30/06/2025
+13960,6,Drug,Injection Ceftriaxone 500 mg + Tazobactam 62.5mg. I.P.,100,562.5 mg vial,01/07/2023,30/06/2025
+13964,7,Drug,Injection Gentamycin 40 mg/ml I.P.,25,30 ml.Vial,01/07/2023,30/06/2025
+13968,8,Drug,Liq. Levofloxacin-100 mg/ml,15,100 ml. Bottle,01/08/2023,31/07/2026
+13971,9,Drug,Each Bolus contains Trimethoprim. 400 mg.+ Sulphamethoxazole 2000 mg.,150,4 bolus Strip,01/07/2023,30/06/2025
+```
+
+For example, when she starts typing "gent" it should find a match for
+`13964,7,Drug,Injection Gentamycin 40 mg/ml I.P.,25,30 ml.Vial,01/07/2023,30/06/2025`
+and show it on the screen for her to tap on it.
+Then she would have a place to type how much is used
+It comes in a 30 ml vial, right?
+And she has 25 available.
+She should be able to type .5 and pick the unit as vial, that would mean she is using up half a vial.
+Or she could type 15 and pick the unit as ml
+When she presses the submit button, the use should get recorded with a timestamp.
+
+This should get stored in a separate database from the SUPPLY data as above. Let's call that UTILIZATION table.
+
+As utilization happens, a new table should start forming. Which will comprise of reconcile data from SUPPLY and UTILIZATION.
+Let' call this table the CURRENT table.
+
+The CURRENT table with start its life as a copy of the SUPPLY table.
+and when my sister records "Cefotaxime Sodium" 1 vial and submits, the NET table row for that drug should change from
+
+13954,4,Drug,Injection Cefotaxime Sodium USP,150,500 mg. Vial,01/07/2023,30/06/2025
+to
+13954,4,Drug,Injection Cefotaxime Sodium USP,149,500 mg. Vial,01/07/2023,30/06/2025
+
+Can you guide me how to write such app?
+
+The backend storage of the tables should be google drive if possible.
+

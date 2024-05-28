@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Search and Log</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="search-container">
+            <input type="text" id="searchBar" placeholder="Search..." oninput="searchItems()">
+            <div id="results" class="results-container"></div>
+        </div>
+        <div id="selectedItem" class="hidden">
+            <p id="selectedItemName" class="highlight"></p>
+            <input type="number" id="usageInput" placeholder="Enter amount used">
+            <button onclick="submitUsage()">Submit</button>
+        </div>
+        <h2>Usage Log</h2>
+        <button onclick="exportToCSV()">Export to CSV</button>
+        <button onclick="clearUsageLog()">Clear Usage Log</button>
+        <table id="usageLog">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Quantity</th>
+                    <th>Timestamp</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
