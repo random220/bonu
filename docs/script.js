@@ -10,7 +10,7 @@ function searchItems() {
         const filteredData = data.filter(item => item.item.toLowerCase().includes(query));
         filteredData.forEach(item => {
             const resultItem = document.createElement('p');
-            resultItem.textContent = `${item.item.slice(0, 40)}${item.item.length > 40 ? '...' : ''} - Qty: ${item.qty}`;
+            resultItem.textContent = `${item.item.slice(0, 40)}${item.item.length > 40 ? '...' : ''} -- Qty: ${item.qty} (${item.unit})`;
             resultItem.onclick = () => selectItem(item);
             resultsContainer.appendChild(resultItem);
         });
