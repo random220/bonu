@@ -15,12 +15,12 @@
         <div id="selectedItem" class="hidden">
             <p id="selectedItemName" class="highlight"></p>
             <input type="number" id="usageInput" placeholder="Enter amount used">
-            <button onclick="submitUsage()">Submit</button>
+            <button class="button_any" onclick="submitUsage()">Submit</button>
         </div>
         <h2>Usage Log</h2>
-        <button onclick="exportToCSV()">Export CSV</button>
-        <button onclick="reloadPage()">Reload Page</button>
-        <button style="background-color:red; color:white" onclick="clearUsageData()">Clear Usage</button>
+        <button class="button_any" onclick="exportToCSV()">Export CSV</button>
+        <button class="button_any" onclick="reloadPage()">Reload Page</button>
+        <button class="button_red" onclick="clearUsageData()">Clear Usage</button>
         <table id="usageLog">
             <thead>
                 <tr>

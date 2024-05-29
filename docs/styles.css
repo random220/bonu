@@ -115,6 +115,10 @@ button:hover {
     background-color: #f0f0f0;
 }
 
+.button_any{padding: 5px;}
+.button_red {padding: 5px; background-color: red; color: white;}
+
+
 #usageLog {
     width: 100%;
     border-collapse: collapse;
@@ -125,4 +129,8 @@ button:hover {
     border: 1px solid #ccc;
     padding: 8px;
     text-align: left;
+}
+
+.button-container {
+  display: flex;
 }

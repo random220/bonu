@@ -137,8 +137,10 @@ function displayUsageLog() {
             <td>${entry.quantity}</td>
             <td>${entry.timestamp}</td>
             <td>
-                <button onclick="editUsage('${entry.timestamp}')">Edit</button>
-                <button onclick="deleteUsageByTimestamp('${entry.timestamp}')">Delete</button>
+                <div class="button-container">
+                    <button class="button button_any" onclick="editUsage('${entry.timestamp}')">Edit</button>
+                    <button class="button button_red" onclick="deleteUsageByTimestamp('${entry.timestamp}')">Delete</button>
+                </div>
             </td>
         `;
         usageLogTableBody.appendChild(row);
