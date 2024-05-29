@@ -2,15 +2,19 @@
 
 import csv
 import json
+import sys
 
 rows = []
-with open('SUPPLY.csv', newline='') as csvfile:
+csvfile = 'SUPPLY.csv'
+if len(sys.argv) == 2:
+    csvfile = sys.argv[1]
+
+with open(csvfile, newline='') as csvfile:
     spamreader = csv.reader(csvfile, delimiter=',', quotechar='"')
     for row in spamreader:
         rows.append(row)
 
-# ['id', '#', 'Category', 'Item', 'Qty', 'Unit', 'Mfg Date', 'Exp Date']
-header = ['id', 'number', 'category', 'item', 'qty', 'unit', 'mfgDate', 'expDate']
+header = [i.lower() for i in rows[0]]
 
 data = []
 n = len(header)
