@@ -1,0 +1,46 @@
+I would like to convert this csv file content
+
+id,#,Category,Item,Qty,Unit,Mfg Date,Exp Date
+13945,1,Drug,Injection Enrofloxacin 100 mg. /ml. I.P.,40,50 ml.Vial,01/04/2023,31/03/2025
+13948,2,Drug,Tablet Enrofloxacin. 50 mg.,200,10 tablets Strip,01/07/2023,30/06/2025
+13951,3,Drug,Enrofloxacin Oral 50 mg per ml,50,100 ml. Bottle,01/08/2023,01/07/2025
+
+
+into a data structure like this in Javascript running inside a browser
+
+data =
+[
+    {
+        "id": "13945",
+        "number": "1",
+        "category": "Drug",
+        "item": "Injection Enrofloxacin 100 mg. /ml. I.P.",
+        "qty": "40",
+        "unit": "50 ml.Vial",
+        "mfgDate": "01/04/2023",
+        "expDate": "31/03/2025"
+    },
+    {
+        "id": "13948",
+        "number": "2",
+        "category": "Drug",
+        "item": "Tablet Enrofloxacin. 50 mg.",
+        "qty": "200",
+        "unit": "10 tablets Strip",
+        "mfgDate": "01/07/2023",
+        "expDate": "30/06/2025"
+    },
+    {
+        "id": "13951",
+        "number": "3",
+        "category": "Drug",
+        "item": "Enrofloxacin Oral 50 mg per ml",
+        "qty": "50",
+        "unit": "100 ml. Bottle",
+        "mfgDate": "01/08/2023",
+        "expDate": "01/07/2025"
+    }
+];
+
+
+Could you give me the minimal code to receive an html file from user and ingest into an array like this?

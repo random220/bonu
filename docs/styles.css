@@ -1,6 +1,18 @@
-/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
 .container {
-    margin: 20px;
+    width: 80%;
+    max-width: 600px;
+    margin: 20px auto;
 }
 
 .search-container {
@@ -14,9 +26,9 @@
 #searchBar {
     width: 100%;
     padding: 10px;
-    margin-bottom: 10px;
     font-size: 16px;
-    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
 .results-container {
@@ -42,12 +54,41 @@
     display: none;
 }
 
-#selectedItem {
-    margin-bottom: 20px;
+#results {
+    margin-top: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.result-item {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.result-item p {
+    margin: 2px 0;
+}
+
+.result-item:last-child {
+    border-bottom: none;
 }
 
 .highlight {
+    background-color: #ffffcc; /* light yellow background */
     font-weight: bold;
+    color: #333;
+}
+
+.hidden {
+    display: none;
+}
+
+#selectedItem {
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 table {
@@ -69,4 +110,16 @@ button {
 
 button:hover {
     background-color: #f0f0f0;
+}
+
+#usageLog {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#usageLog th, #usageLog td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
 }

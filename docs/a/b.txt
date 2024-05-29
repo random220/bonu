@@ -1,0 +1,552 @@
+[
+    {
+        "id": "13945",
+        "#": "1",
+        "category": "Drug",
+        "item": "Injection Enrofloxacin 100 mg. /ml. I.P.",
+        "qty": "40",
+        "unit": "50 ml.Vial",
+        "mfg date": "01/04/2023",
+        "exp date": "31/03/2025"
+    },
+    {
+        "id": "13948",
+        "#": "2",
+        "category": "Drug",
+        "item": "Tablet Enrofloxacin. 50 mg.",
+        "qty": "200",
+        "unit": "10 tablets Strip",
+        "mfg date": "01/07/2023",
+        "exp date": "30/06/2025"
+    },
+    {
+        "id": "13951",
+        "#": "3",
+        "category": "Drug",
+        "item": "Enrofloxacin Oral 50 mg per ml",
+        "qty": "50",
+        "unit": "100 ml. Bottle",
+        "mfg date": "01/08/2023",
+        "exp date": "01/07/2025"
+    },
+    {
+        "id": "13954",
+        "#": "4",
+        "category": "Drug",
+        "item": "Injection Cefotaxime Sodium USP",
+        "qty": "150",
+        "unit": "500 mg. Vial",
+        "mfg date": "01/07/2023",
+        "exp date": "30/06/2025"
+    },
+    {
+        "id": "13957",
+        "#": "5",
+        "category": "Drug",
+        "item": "Injection Ceftriaxone 2000 mg +Tazobactam 250 mg. I.P.",
+        "qty": "45",
+        "unit": "2250 mg. Vial",
+        "mfg date": "01/07/2023",
+        "exp date": "30/06/2025"
+    },
+    {
+        "id": "13960",
+        "#": "6",
+        "category": "Drug",
+        "item": "Injection Ceftriaxone 500 mg + Tazobactam 62.5mg. I.P.",
+        "qty": "100",
+        "unit": "562.5 mg vial",
+        "mfg date": "01/07/2023",
+        "exp date": "30/06/2025"
+    },
+    {
+        "id": "13964",
+        "#": "7",
+        "category": "Drug",
+        "item": "Injection Gentamycin 40 mg/ml I.P.",
+        "qty": "25",
+        "unit": "30 ml.Vial",
+        "mfg date": "01/07/2023",
+        "exp date": "30/06/2025"
+    },
+    {
+        "id": "13968",
+        "#": "8",
+        "category": "Drug",
+        "item": "Liq. Levofloxacin-100 mg/ml",
+        "qty": "15",
+        "unit": "100 ml. Bottle",
+        "mfg date": "01/08/2023",
+        "exp date": "31/07/2026"
+    },
+    {
+        "id": "13971",
+        "#": "9",
+        "category": "Drug",
+        "item": "Each Bolus contains Trimethoprim. 400 mg.+ Sulphamethoxazole 2000 mg.",
+        "qty": "150",
+        "unit": "4 bolus Strip",
+        "mfg date": "01/07/2023",
+        "exp date": "30/06/2025"
+    },
+    {
+        "id": "13973",
+        "#": "10",
+        "category": "Drug",
+        "item": "Injection Triamcinolone 6 mg. per ml.",
+        "qty": "7",
+        "unit": "5 ml. Vial",
+        "mfg date": "01/08/2023",
+        "exp date": "31/07/2025"
+    },
+    {
+        "id": "13974",
+        "#": "11",
+        "category": "Drug",
+        "item": "Injection Prednisolone Acetate 10 mg per ml.",
+        "qty": "5",
+        "unit": "10 ml. Vial",
+        "mfg date": "01/01/2023",
+        "exp date": "31/12/2024"
+    },
+    {
+        "id": "13975",
+        "#": "12",
+        "category": "Drug",
+        "item": "Injection Pheniramine Maleate 22.75 mg/ml.",
+        "qty": "30",
+        "unit": "30 ml.Vial",
+        "mfg date": "01/05/2023",
+        "exp date": "30/04/2025"
+    },
+    {
+        "id": "13976",
+        "#": "13",
+        "category": "Drug",
+        "item": "Injection Xylazine Hydrochloride equivalent to Xylazine 20 mg for 2% Solution",
+        "qty": "5",
+        "unit": "10 ml. Vial",
+        "mfg date": "01/07/2023",
+        "exp date": "30/06/2025"
+    },
+    {
+        "id": "13977",
+        "#": "14",
+        "category": "Drug",
+        "item": "Injection Meloxicam 5 mg /ml. I.P. & Paracetamol IP 150 mg per ml",
+        "qty": "5",
+        "unit": "30 ml.Vial",
+        "mfg date": "01/12/2022",
+        "exp date": "30/11/2024"
+    },
+    {
+        "id": "13978",
+        "#": "15",
+        "category": "Drug",
+        "item": "Injection Meloxicam 5 mg /ml. I.P.",
+        "qty": "20",
+        "unit": "30 ml.Vial",
+        "mfg date": "01/08/2023",
+        "exp date": "31/07/2025"
+    },
+    {
+        "id": "13979",
+        "#": "16",
+        "category": "Drug",
+        "item": "Bolus contains: Nimesulide 400 mg & Paracetamol (1500 mg)",
+        "qty": "20",
+        "unit": "4 bolus Strip",
+        "mfg date": "01/01/2023",
+        "exp date": "31/12/2024"
+    },
+    {
+        "id": "13980",
+        "#": "17",
+        "category": "Drug",
+        "item": "Injection contains: ( Vitamin-A 2,50,000 IU, Vitamin-D3 25,000 IU, Vitamin-E100 IU, Biotin12.5 mcg) / ml",
+        "qty": "5",
+        "unit": "10 ml. Vial",
+        "mfg date": "01/12/2023",
+        "exp date": "31/05/2025"
+    },
+    {
+        "id": "13981",
+        "#": "18",
+        "category": "Drug",
+        "item": "Injection Dexamethasone. 4 mg/ml I.P.",
+        "qty": "20",
+        "unit": "10 ml. Vial",
+        "mfg date": "01/11/2022",
+        "exp date": "31/10/2024"
+    },
+    {
+        "id": "13982",
+        "#": "19",
+        "category": "Drug",
+        "item": "Inj. (Nimusulide 100 mg + Paracetamol 150 mg)/ml",
+        "qty": "15",
+        "unit": "30 ml.Vial",
+        "mfg date": "01/04/2023",
+        "exp date": "31/03/2025"
+    },
+    {
+        "id": "13983",
+        "#": "20",
+        "category": "Drug",
+        "item": "Albendazole 600 mg. Bolus.",
+        "qty": "200",
+        "unit": "6 bolus Strip",
+        "mfg date": "01/07/2023",
+        "exp date": "30/06/2025"
+    },
+    {
+        "id": "13984",
+        "#": "21",
+        "category": "Drug",
+        "item": "Fenbendazole 150 mg. Tablet.",
+        "qty": "45",
+        "unit": "10 tablets Strip",
+        "mfg date": "01/04/2023",
+        "exp date": "31/03/2025"
+    },
+    {
+        "id": "13985",
+        "#": "22",
+        "category": "Drug",
+        "item": "Fenbendazole 1.5 gm. Bolus.",
+        "qty": "40",
+        "unit": "2 bolus Strip",
+        "mfg date": "01/06/2023",
+        "exp date": "31/05/2025"
+    },
+    {
+        "id": "13986",
+        "#": "23",
+        "category": "Drug",
+        "item": "Oxyclozanide 1 gm. Bolus. I.P.",
+        "qty": "100",
+        "unit": "10 bolus Strip",
+        "mfg date": "01/08/2023",
+        "exp date": "31/07/2025"
+    },
+    {
+        "id": "13987",
+        "#": "24",
+        "category": "Drug",
+        "item": "Injection Ivermectin 1%. I.P.",
+        "qty": "50",
+        "unit": "10 ml. Vial",
+        "mfg date": "01/05/2023",
+        "exp date": "30/04/2025"
+    },
+    {
+        "id": "13988",
+        "#": "25",
+        "category": "Drug",
+        "item": "Suspension Closantel 15% W/V",
+        "qty": "60",
+        "unit": "30 ml. Bottle",
+        "mfg date": "01/07/2023",
+        "exp date": "30/06/2025"
+    },
+    {
+        "id": "13989",
+        "#": "26",
+        "category": "Drug",
+        "item": "Each tablet contains Fenbendazole 150 mg with Praziquantal 50 mg",
+        "qty": "100",
+        "unit": "6 tablets strip",
+        "mfg date": "01/07/2023",
+        "exp date": "30/06/2025"
+    },
+    {
+        "id": "13990",
+        "#": "27",
+        "category": "Drug",
+        "item": "Tab. Albendazole-150mg",
+        "qty": "50",
+        "unit": "10 tablets Strip",
+        "mfg date": "01/12/2022",
+        "exp date": "30/11/2024"
+    },
+    {
+        "id": "13991",
+        "#": "28",
+        "category": "Drug",
+        "item": "Susp. Oxyclozanide 3% w/v with Levamisole 1.5%w/v",
+        "qty": "10",
+        "unit": "100 ml. Bottle",
+        "mfg date": "01/07/2023",
+        "exp date": "30/06/2026"
+    },
+    {
+        "id": "13992",
+        "#": "29",
+        "category": "Drug",
+        "item": "Powder Piperazine Adipate 44.4 % w/w",
+        "qty": "1",
+        "unit": "450 gm. Pkt.",
+        "mfg date": "01/02/2023",
+        "exp date": "31/01/2025"
+    },
+    {
+        "id": "13993",
+        "#": "30",
+        "category": "Drug",
+        "item": "Area Specific Mineral Mixture (Per Kg contains) Moisture: 5% Max. Calcium: 25.5% Min. Phosphorus: 11% Min. Copper: 0.2 % Min. Zinc: 1.4% Min. Manganese: 0.5% Min. Iodine: 0.026% Min. Chromium: 0.004% Min. Fluorine: 0.065% Max. Acid insoluble ash: 3% Max. Lead: 22 ppm. Max. Arsenic: 8 ppm. Max.",
+        "qty": "30",
+        "unit": "1 Kg. Poly packet",
+        "mfg date": "01/08/2023",
+        "exp date": "31/07/2025"
+    },
+    {
+        "id": "13995",
+        "#": "31",
+        "category": "Drug",
+        "item": "Stomachic Powder.",
+        "qty": "300",
+        "unit": "10 gm. Pouch",
+        "mfg date": "01/08/2023",
+        "exp date": "31/07/2025"
+    },
+    {
+        "id": "13997",
+        "#": "32",
+        "category": "Drug",
+        "item": "Copper Sulphate.IP",
+        "qty": "1",
+        "unit": "500 gm.",
+        "mfg date": "01/08/2023",
+        "exp date": "31/07/2025"
+    },
+    {
+        "id": "13999",
+        "#": "33",
+        "category": "Drug",
+        "item": "Stomachic Powder.",
+        "qty": "35",
+        "unit": "1 Kg Poly pouch",
+        "mfg date": "01/07/2023",
+        "exp date": "30/06/2025"
+    },
+    {
+        "id": "14000",
+        "#": "34",
+        "category": "Drug",
+        "item": "Anti-Diarrhoeal Powder.",
+        "qty": "25",
+        "unit": "1 Kg Poly pouch",
+        "mfg date": "01/08/2023",
+        "exp date": "31/07/2025"
+    },
+    {
+        "id": "14002",
+        "#": "35",
+        "category": "Drug",
+        "item": "Liq. Antibloat",
+        "qty": "20",
+        "unit": "100 ml. Bottle/Jar",
+        "mfg date": "01/05/2023",
+        "exp date": "30/04/2026"
+    },
+    {
+        "id": "14004",
+        "#": "36",
+        "category": "Drug",
+        "item": "Production enhancer and Hepato stimulant Liq.",
+        "qty": "20",
+        "unit": "1 Litre Bottle/Jar",
+        "mfg date": "01/07/2023",
+        "exp date": "30/06/2025"
+    },
+    {
+        "id": "28205",
+        "#": "37",
+        "category": "Drug",
+        "item": "Acriflavin BPC",
+        "qty": "4",
+        "unit": "5 gm.",
+        "mfg date": "01/03/2022",
+        "exp date": "28/02/2025"
+    },
+    {
+        "id": "28206",
+        "#": "38",
+        "category": "Drug",
+        "item": "Bol. Levamisole-0.5 g + Oxyclozanide- 1gm.",
+        "qty": "50",
+        "unit": "4 bolus Strip",
+        "mfg date": "01/01/2023",
+        "exp date": "31/12/2024"
+    },
+    {
+        "id": "28207",
+        "#": "39",
+        "category": "Drug",
+        "item": "Boric acid (H3Bo3)-Pwd. (A.R.-99.8%, Confirms to ACS specification)",
+        "qty": "1",
+        "unit": "500 gm. Packet",
+        "mfg date": "01/08/2023",
+        "exp date": "31/07/2025"
+    },
+    {
+        "id": "28208",
+        "#": "40",
+        "category": "Drug",
+        "item": "Immuno modulator and Antistress Liq",
+        "qty": "8",
+        "unit": "1 Litre Bottle/Jar",
+        "mfg date": "01/08/2023",
+        "exp date": "31/07/2025"
+    },
+    {
+        "id": "28209",
+        "#": "41",
+        "category": "Drug",
+        "item": "Vitamin (Liquid)(each ml contains) Vitamin A: 50,000 I.U. Vitamin D3: 5,000 I.U. Vitamin E: 50 mg. Vitamin C: 100 mg. Vitamin B12: 25 mcg.",
+        "qty": "10",
+        "unit": "120 ml. Bottle",
+        "mfg date": "01/01/2022",
+        "exp date": "31/12/2024"
+    },
+    {
+        "id": "28210",
+        "#": "42",
+        "category": "Drug",
+        "item": "Liquid Feed Supplements of Vitamins and Minerals : Each 10 ml Contains : Vitamin A: 120000.U. Vitamin D3: 60000 I.U. Vitamin E: 15 mg. Vitamin H : 1.5 mg Vitamin C: 10 mg. Zinc : 180 mg Cobalt : 1 mg Silymarin: 20 mg Vitamin B12: 20 mcg.",
+        "qty": "50",
+        "unit": "100 ml. Bottle",
+        "mfg date": "01/07/2023",
+        "exp date": "30/06/2024"
+    },
+    {
+        "id": "28212",
+        "#": "43",
+        "category": "Drug",
+        "item": "Injection contains: Thiamine Hydrochloride 10 mg, Vitamin B12 (Cyanocobalamine)-10 mcg, Riboflavin IP 3 mg, Niacinamide 100 mg, Crude Liverextract having Vitamin-B12 activity equivalent to 2 mcg cyanocobalamine, / ml.",
+        "qty": "50",
+        "unit": "30 ml.Vial",
+        "mfg date": "01/04/2023",
+        "exp date": "31/03/2025"
+    },
+    {
+        "id": "28213",
+        "#": "44",
+        "category": "Drug",
+        "item": "Injection Amoxicillin 2 gm + Sulbactam 1 gm",
+        "qty": "35",
+        "unit": "3 gm. Vial",
+        "mfg date": "01/08/2023",
+        "exp date": "31/07/2025"
+    },
+    {
+        "id": "28214",
+        "#": "45",
+        "category": "Drug",
+        "item": "Inj. DiaminazeneAceturate- 70 mg/ml & Phenazone 375mg/ml.",
+        "qty": "7",
+        "unit": "30 ml.Vial",
+        "mfg date": "01/07/2023",
+        "exp date": "30/06/2025"
+    },
+    {
+        "id": "28215",
+        "#": "46",
+        "category": "Drug",
+        "item": "Each 100 gms contain 2-propanol-45gm, 1-propanol-30gms, and ethyl-hexa- adecyl-dimethyl-ammoniumethylsulphate-0.2 gm.",
+        "qty": "5",
+        "unit": "500 ml. Plastic Container",
+        "mfg date": "01/03/2022",
+        "exp date": "28/02/2025"
+    },
+    {
+        "id": "28216",
+        "#": "47",
+        "category": "Drug",
+        "item": "Paraffin Liquid Light (Medicinal)",
+        "qty": "4",
+        "unit": "500 ml. Bottle",
+        "mfg date": "01/07/2023",
+        "exp date": "30/06/2025"
+    },
+    {
+        "id": "28217",
+        "#": "48",
+        "category": "Drug",
+        "item": "Phenyl Liquid RWC 5-6",
+        "qty": "7",
+        "unit": "4 Litre Jar",
+        "mfg date": "01/01/2023",
+        "exp date": "30/06/2024"
+    },
+    {
+        "id": "28218",
+        "#": "49",
+        "category": "Drug",
+        "item": "Potassium permanganate (KMno4) (A.R.-99.5%, Confirms to ACS specification)",
+        "qty": "1",
+        "unit": "500 gm. Pb packed",
+        "mfg date": "01/08/2023",
+        "exp date": "31/07/2025"
+    },
+    {
+        "id": "28220",
+        "#": "50",
+        "category": "Drug",
+        "item": "Anti Bacterial Aurvedic Dermatological Ointment : Each 100 gm Contains: Indradaru/ Cedrus Deodara Oil-15 gm,Surbhidaru/ Pinus Longifolia oil& Tar-20gm, Somvolka/ PongamiaGlabra oil-35 gm,Tarun/ R. Cumins oil Hydrogenated - 8 gm, Bakuchi / Psoralea Corylifolia oil- 1 gm  ( SKIN OINTMENT WITH PROVEN FLY REPELLENT )",
+        "qty": "18",
+        "unit": "1 Kg. packet",
+        "mfg date": "01/08/2023",
+        "exp date": "31/07/2026"
+    },
+    {
+        "id": "28224",
+        "#": "51",
+        "category": "Drug",
+        "item": "Powder Mineral feed Supplement: Each1kg contains- Copper 1200 mg, Cobalt150 mg, Magnesium 6000 mg, Iron 5000 mg, Zinc 9600 mg, Iodine 325 mg, DL-Methionine 1920 mg, L-LysineMono-hydro-chloride 4400mg, Calcium 24%, Phosphorus 12%, Manganese 1500 mg, Potassium 100 mg, Sodium 5.9 mg, Sulphur 0.922%,Selenium-10mg.",
+        "qty": "30",
+        "unit": "1 Kg. packet",
+        "mfg date": "01/03/2023",
+        "exp date": "28/02/2026"
+    },
+    {
+        "id": "29127",
+        "#": "52",
+        "category": "Drug",
+        "item": "Liq. Ecbolic",
+        "qty": "20",
+        "unit": "500 ml. Bottle/Jar",
+        "mfg date": "01/06/2022",
+        "exp date": "31/05/2025"
+    },
+    {
+        "id": "29135",
+        "#": "53",
+        "category": "Drug",
+        "item": "Sodium-Bi-Carbonate. I.P.",
+        "qty": "3",
+        "unit": "450 gm. Packet",
+        "mfg date": "01/08/2023",
+        "exp date": "31/07/2025"
+    },
+    {
+        "id": "29144",
+        "#": "54",
+        "category": "Drug",
+        "item": "Liquid Water miscible Multivitamin  Each ml contains : Vitamin A - 50,000 IU, Vitamin D3 - 5,000 IU, Vitamin E - 30 IU/mg, Vitamin C - 100 mg",
+        "qty": "50",
+        "unit": "100 ml. Bottle",
+        "mfg date": "01/07/2023",
+        "exp date": "30/06/2025"
+    },
+    {
+        "id": "29145",
+        "#": "55",
+        "category": "Drug",
+        "item": "Vitamin B-Complex (each 5 ml contains) Vitamin B2: 1.25 mg d-panthenol : 0.65 mg Vitamin B6: 0.62mg. Vitamin B12: 6.25 mcg. Biotin: 25 mcg. Nicotinamide : 18.75 mg. Choline Chloride: 10 mg. Lysin mono hydrochloride: 10 mg.",
+        "qty": "4",
+        "unit": "5 Litre Poly jar",
+        "mfg date": "01/12/2022",
+        "exp date": "30/11/2024"
+    }
+];
