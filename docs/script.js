@@ -1,4 +1,5 @@
 
+
 let data = JSON.parse(localStorage.getItem('remainingSupply')) || [];
 if (data.length == 0) {
     localStorage.setItem('remainingSupply', JSON.stringify(data0))
@@ -23,27 +24,6 @@ function searchItems() {
     }
 }
 
-/*
-function displayResults(results) {
-    const resultsContainer = document.getElementById('results');
-    resultsContainer.innerHTML = '';
-    if (results.length === 0) {
-        resultsContainer.innerHTML = '<p>No matches found</p>';
-    } else {
-        results.forEach(result => {
-            const resultItem = document.createElement('div');
-            resultItem.classList.add('result-item');
-            resultItem.innerHTML = `
-                <p class="highlight">${result.item} ${result.qty}</p>
-                <p><strong>Quantity:</strong> ${result.qty}</p>
-                <p><strong>Unit:</strong> ${result.unit}</p>
-            `;
-            resultItem.onclick = () => selectItem(result);
-            resultsContainer.appendChild(resultItem);
-        });
-    }
-}
-*/
 
 function selectItem(item) {
     selectedItem = item;
@@ -189,7 +169,7 @@ function deleteUsageByTimestamp(timestamp) {
 }
 
 
-function exportToCSV() {
+function exportUsageToCSV() {
     const usageLog = JSON.parse(localStorage.getItem('usageLog')) || [];
     if (usageLog.length === 0) {
         alert('Usage log is empty.');
@@ -210,6 +190,45 @@ function exportToCSV() {
     const a = document.createElement('a');
     a.setAttribute('href', url);
     a.setAttribute('download', 'usage_log.csv');
+    a.click();
+    window.URL.revokeObjectURL(url);
+}
+
+function exportRemainingToCSV() {
+    const data = JSON.parse(localStorage.getItem('remainingSupply')) || [];
+    if (data.length == 0) {
+        return;
+    }
+
+    const sheet_columns = ["id", "#", "Category", "Item", "Qty", "Unit", "Mfg Date", "Exp Date"];
+    const data_columns  = ["id","number","category","item","qty","unit","mfgDate","expDate"];
+
+    let csv = "";
+    csvHeadline = sheet_columns.join(",");
+    csv = csv + csvHeadline + "\n";
+    for (let i in data) {
+        let row = [];
+        for (j in data_columns) {
+            row.push(data[i][data_columns[j]]);
+        }
+        const rowline = row.map(item => {
+            let position = item.toString().search(/,/);
+            if (position == -1) {
+                return item;
+            }
+            else {
+                return `"${item}"`;
+            }
+        }).join(",");
+        csv = csv + rowline + "\n";
+    }
+
+    // Create and download CSV file
+    const blob = new Blob([csv], { type: 'text/csv' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.setAttribute('href', url);
+    a.setAttribute('download', 'remaining-supply.csv');
     a.click();
     window.URL.revokeObjectURL(url);
 }
