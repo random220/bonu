@@ -79,7 +79,7 @@ function submitUsage() {
     };
 
     saveUsageLog(logEntry);
-    adjustSupply(logEntry);
+    updateSupplyByLogEntry(logEntry);
     displayUsageLog();
     resetForm();
 }
@@ -90,7 +90,17 @@ function saveUsageLog(logEntry) {
     localStorage.setItem('usageLog', JSON.stringify(usageLog));
 }
 
-function adjustSupply(logEntry) {
+function updateSupplyByItemID_Amount(id, amount) {
+    for (let i = 0; i < data.length; i++) {
+        if (data[i].id == id) {
+            data[i].qty -= amount;
+            break;
+        }
+    }
+    localStorage.setItem('remainingSupply', JSON.stringify(data));
+}
+
+function updateSupplyByLogEntry(logEntry) {
     for (let i = 0; i < data.length; i++) {
         if (data[i].id == logEntry.id) {
             data[i].qty -= logEntry.quantity;
@@ -128,7 +138,7 @@ function displayUsageLog() {
             <td>${entry.timestamp}</td>
             <td>
                 <button onclick="editUsage('${entry.timestamp}')">Edit</button>
-                <button onclick="deleteUsage('${entry.timestamp}')">Delete</button>
+                <button onclick="deleteUsageByTimestamp('${entry.timestamp}')">Delete</button>
             </td>
         `;
         usageLogTableBody.appendChild(row);
@@ -143,7 +153,7 @@ function resetForm() {
     selectedItem = null;
 }
 
-// Update the editUsage function
+// TODO Update the editUsage function
 function editUsage(timestamp) {
     const usageLog = JSON.parse(localStorage.getItem('usageLog')) || [];
     const entryIndex = usageLog.findIndex(entry => entry.timestamp === timestamp);
@@ -160,25 +170,15 @@ function editUsage(timestamp) {
     }
 }
 
-// Update the deleteUsage function
-function deleteUsage(timestamp) {
+function deleteUsageByTimestamp(timestamp) {
     const confirmDelete = confirm('Are you sure you want to delete this entry?');
     if (confirmDelete) {
         const usageLog = JSON.parse(localStorage.getItem('usageLog')) || [];
         const updatedLog = usageLog.filter(entry => entry.timestamp !== timestamp);
+        const entryToDel = usageLog.filter(entry => entry.timestamp == timestamp);
         localStorage.setItem('usageLog', JSON.stringify(updatedLog));
-        displayUsageLog();
-    }
-}
-
-// Add this function to handle deleting a log entry
-function deleteUsage(index) {
-    const confirmDelete = confirm('Are you sure you want to delete this entry?');
-    if (confirmDelete) {
-        const usageLog = JSON.parse(localStorage.getItem('usageLog')) || [];
-        usageLog.splice(index, 1);
-        localStorage.setItem('usageLog', JSON.stringify(usageLog));
-        displayUsageLog();
+        updateSupplyByItemID_Amount(entryToDel[0].id, 0 - entryToDel[0].quantity);
+        location.reload();
     }
 }
 
@@ -213,11 +213,15 @@ function clearUsageData() {
     if (confirmation === "YES") {
         localStorage.removeItem('usageLog');
         localStorage.removeItem('remainingSupply');
-        displayUsageLog();
+        location.reload();
         alert('Usage data cleared successfully.');
     } else {
         alert('Clear operation canceled.');
     }
+}
+
+function reloadPage() {
+    location.reload();
 }
 
 // Initialize the usage log display
