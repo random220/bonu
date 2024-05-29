@@ -197,11 +197,11 @@ function exportToCSV() {
     }
 
     // Construct CSV content
-    const csvContent = "timestamp,drugid,drugname,quantity\n" +
+    const csvContent = "Time-Stamp,Drug-Id,Quantity,Drug-Name\n" +
         usageLog.map(entry => {
             const drugName = entry.item ? `"${entry.item.replace(/"/g, '""')}"` : ''; // Handling undefined item
             const timestamp = `"${entry.timestamp.replace(/"/g, '""')}"`; // Handling commas in timestamp
-            return `${timestamp},${entry.id},${drugName},${entry.quantity}`;
+            return `${timestamp},${entry.id},${entry.quantity},${drugName}`;
         }).join("\n");
 
     // Create and download CSV file
