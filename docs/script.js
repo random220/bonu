@@ -61,8 +61,9 @@ function submitUsage() {
     }
 
     const quantity = parseFloat(usageInput);
-    if (isNaN(quantity) || quantity <= 0) {
-        alert('Please enter a valid positive number for the quantity.');
+    //if (isNaN(quantity) || quantity <= 0) {
+    if (isNaN(quantity)) {
+        alert('Please enter a valid number for the quantity.');
         return;
     }
 
@@ -161,11 +162,14 @@ function editUsage(timestamp) {
     const entryIndex = usageLog.findIndex(entry => entry.timestamp === timestamp);
     if (entryIndex !== -1) {
         const entry = usageLog[entryIndex];
+        const entryId = entry.id;
+        const oldQuantity = entry.quantity;
         const newQuantity = prompt(`Edit quantity for ${entry.item}:`, entry.quantity);
         if (newQuantity !== null) {
             entry.quantity = newQuantity;
             localStorage.setItem('usageLog', JSON.stringify(usageLog));
             displayUsageLog();
+            updateSupplyByItemID_Amount(entryId, newQuantity - oldQuantity);
         }
     } else {
         alert('Entry not found.');
