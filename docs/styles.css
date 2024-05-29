@@ -56,12 +56,12 @@ body {
 }
 
 #results {
-    width: 100%;
+    width: 103%;
     margin-top: 3px;
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 4px;
-    padding: 10px;
+    padding: 1px;
 }
 
 .result-item {
