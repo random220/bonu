@@ -17,6 +17,7 @@ function searchItems() {
     }
 }
 
+/*
 function displayResults(results) {
     const resultsContainer = document.getElementById('results');
     resultsContainer.innerHTML = '';
@@ -36,6 +37,7 @@ function displayResults(results) {
         });
     }
 }
+*/
 
 function selectItem(item) {
     selectedItem = item;
