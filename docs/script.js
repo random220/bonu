@@ -5,8 +5,6 @@ if (data.length == 0) {
     data = JSON.parse(localStorage.getItem('remainingSupply'));
 }
 
-console.log(data)
-
 let selectedItem = null;
 
 function searchItems() {
@@ -81,6 +79,7 @@ function submitUsage() {
     };
 
     saveUsageLog(logEntry);
+    adjustSupply(logEntry);
     displayUsageLog();
     resetForm();
 }
@@ -89,6 +88,16 @@ function saveUsageLog(logEntry) {
     const usageLog = JSON.parse(localStorage.getItem('usageLog')) || [];
     usageLog.push(logEntry);
     localStorage.setItem('usageLog', JSON.stringify(usageLog));
+}
+
+function adjustSupply(logEntry) {
+    for (let i = 0; i < data.length; i++) {
+        if (data[i].id == logEntry.id) {
+            data[i].qty -= logEntry.quantity;
+            break;
+        }
+    }
+    localStorage.setItem('remainingSupply', JSON.stringify(data));
 }
 
 function displayUsageLog() {
