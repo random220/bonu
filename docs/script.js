@@ -1,4 +1,12 @@
 
+let data = JSON.parse(localStorage.getItem('remainingSupply')) || [];
+if (data.length == 0) {
+    localStorage.setItem('remainingSupply', JSON.stringify(data0))
+    data = JSON.parse(localStorage.getItem('remainingSupply'));
+}
+
+console.log(data)
+
 let selectedItem = null;
 
 function searchItems() {
@@ -195,6 +203,7 @@ function clearUsageData() {
     const confirmation = prompt("Are you sure you want to clear the usage data? Type 'YES' in capital letters to confirm.");
     if (confirmation === "YES") {
         localStorage.removeItem('usageLog');
+        localStorage.removeItem('remainingSupply');
         displayUsageLog();
         alert('Usage data cleared successfully.');
     } else {
