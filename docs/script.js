@@ -27,7 +27,7 @@ function displayResults(results) {
             const resultItem = document.createElement('div');
             resultItem.classList.add('result-item');
             resultItem.innerHTML = `
-                <p class="highlight">${result.item}</p>
+                <p class="highlight">${result.item} ${result.qty}</p>
                 <p><strong>Quantity:</strong> ${result.qty}</p>
                 <p><strong>Unit:</strong> ${result.unit}</p>
             `;
@@ -41,7 +41,7 @@ function selectItem(item) {
     selectedItem = item;
     document.getElementById('searchBar').value = item.item;
     document.getElementById('results').innerHTML = '';
-    document.getElementById('selectedItemName').textContent = item.item;
+    document.getElementById('selectedItemName').textContent = `${item.item} / ${item.qty} (${item.unit})`;
     document.getElementById('selectedItem').classList.remove('hidden');
 }
 
