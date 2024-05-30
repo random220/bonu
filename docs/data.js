@@ -1,4 +1,4 @@
-const data0 = [
+const supply0 = [
     {
         "id": "13945",
         "number": "1",

@@ -3,17 +3,17 @@ const sheet_columns = ["id", "#", "Category", "Item", "Qty", "Unit", "Mfg Date",
 const data_columns  = ["id","number","category","item","qtyInitial","unit","mfgDate","expDate"];
 
 
-let data = JSON.parse(localStorage.getItem('SUPPLY')) || [];
+let supply = JSON.parse(localStorage.getItem('SUPPLY')) || [];
 let used = JSON.parse(localStorage.getItem('USED')) || {};
 
-if (data.length == 0) {
-    localStorage.setItem('SUPPLY', JSON.stringify(data0))
-    data = JSON.parse(localStorage.getItem('SUPPLY'));
+if (supply.length == 0) {
+    localStorage.setItem('SUPPLY', JSON.stringify(supply0))
+    supply = JSON.parse(localStorage.getItem('SUPPLY'));
 
 }
 
 if (Object.keys(used).length == 0) {
-    data.forEach(item => {
+    supply.forEach(item => {
         used[item.id] = 0;
     });
     localStorage.setItem('USED', JSON.stringify(used))
@@ -27,10 +27,11 @@ function searchItems() {
     resultsContainer.innerHTML = '';
 
     if (query) {
-        const filteredData = data.filter(item => item.item.toLowerCase().includes(query));
+        const filteredData = supply.filter(item => item.item.toLowerCase().includes(query));
         filteredData.forEach(item => {
             const resultItem = document.createElement('p');
-            resultItem.textContent = `${item.item.slice(0, 40)}${item.item.length > 40 ? '...' : ''} -- Qty: ${item.qtyInitial} (${item.unit})`;
+            const qty = item.qtyInitial - used[item.id];
+            resultItem.textContent = `${item.item.slice(0, 40)}${item.item.length > 40 ? '...' : ''} -- Qty: ${qty} (${item.unit})`;
             resultItem.onclick = () => selectItem(item);
             resultsContainer.appendChild(resultItem);
         });
@@ -42,7 +43,8 @@ function selectItem(item) {
     selectedItem = item;
     document.getElementById('searchBar').value = item.item;
     document.getElementById('results').innerHTML = '';
-    document.getElementById('selectedItemName').textContent = `${item.item} / ${item.qtyInitial} (${item.unit})`;
+    const qty = item.qtyInitial - used[item.id];
+    document.getElementById('selectedItemName').textContent = `${item.item} / ${qty} (${item.unit})`;
     document.getElementById('selectedItem').classList.remove('hidden');
 }
 
@@ -76,7 +78,6 @@ function submitUsage() {
     };
 
     saveUsageLog(logEntry);
-    updateSupplyByLogEntry(logEntry);
     displayUsageLog();
     resetForm();
 }
@@ -85,26 +86,18 @@ function saveUsageLog(logEntry) {
     const usageLog = JSON.parse(localStorage.getItem('usageLog')) || [];
     usageLog.push(logEntry);
     localStorage.setItem('usageLog', JSON.stringify(usageLog));
+
+    used[logEntry.id] += logEntry.quantity
+    localStorage.setItem('USED', JSON.stringify(used))
 }
 
-function updateSupplyByItemID_Amount(id, amount) {
-    for (let i = 0; i < data.length; i++) {
-        if (data[i].id == id) {
-            data[i].qtyInitial -= amount;
-            break;
-        }
-    }
-    localStorage.setItem('SUPPLY', JSON.stringify(data));
+function updateUsedByItemID_Amount(id, amount) {
+    used[id] = used[id] + amount;
+    localStorage.setItem('USED', JSON.stringify(used));
 }
 
-function updateSupplyByLogEntry(logEntry) {
-    for (let i = 0; i < data.length; i++) {
-        if (data[i].id == logEntry.id) {
-            data[i].qtyInitial -= logEntry.quantity;
-            break;
-        }
-    }
-    localStorage.setItem('SUPPLY', JSON.stringify(data));
+function updateUsedByLogEntry(logEntry) {
+    updateUsedByItemID_Amount(logEntry.id, logEntry.quantity);
 }
 
 function displayUsageLog() {
@@ -156,7 +149,7 @@ function editUsage(timestamp) {
             entry.quantity = newQuantity;
             localStorage.setItem('usageLog', JSON.stringify(usageLog));
             displayUsageLog();
-            updateSupplyByItemID_Amount(entryId, newQuantity - oldQuantity);
+            updateUsedByItemID_Amount(entryId, newQuantity - oldQuantity);
         }
     } else {
         alert('Entry not found.');
@@ -170,7 +163,7 @@ function deleteUsageByTimestamp(timestamp) {
         const updatedLog = usageLog.filter(entry => entry.timestamp !== timestamp);
         const entryToDel = usageLog.filter(entry => entry.timestamp == timestamp);
         localStorage.setItem('usageLog', JSON.stringify(updatedLog));
-        updateSupplyByItemID_Amount(entryToDel[0].id, 0 - entryToDel[0].quantity);
+        updateUsedByItemID_Amount(entryToDel[0].id, 0 - entryToDel[0].quantity);
         location.reload();
     }
 }
@@ -202,18 +195,18 @@ function exportUsageToCSV() {
 }
 
 function exportRemainingToCSV() {
-    const data = JSON.parse(localStorage.getItem('SUPPLY')) || [];
-    if (data.length == 0) {
+    const supply = JSON.parse(localStorage.getItem('SUPPLY')) || [];
+    if (supply.length == 0) {
         return;
     }
 
     let csv = "";
     csvHeadline = sheet_columns.join(",");
     csv = csv + csvHeadline + "\n";
-    for (let i in data) {
+    for (let i in supply) {
         let row = [];
         for (j in data_columns) {
-            row.push(data[i][data_columns[j]]);
+            row.push(supply[i][data_columns[j]]);
         }
         const rowline = row.map(item => {
             let position = item.toString().search(/,/);
