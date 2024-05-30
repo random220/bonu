@@ -113,9 +113,13 @@ function displayUsageLog() {
         const truncatedItemName = entry.item.length > 40 ? entry.item.slice(0, 40) + '...' : entry.item;
 
         const row = document.createElement('tr');
+        const qty_initial = supply.filter(item => item.id == entry.id)[0]['qtyInitial'];
+        const qty_used = used[entry.id];
+        const qty_leftover = qty_initial - qty_used;
         row.innerHTML = `
             <td>${truncatedItemName}</td>
             <td>${entry.quantity}</td>
+            <td>${qty_used}/${qty_initial}</td>
             <td>${entry.timestamp}</td>
             <td>
                 <div class="button-container">
