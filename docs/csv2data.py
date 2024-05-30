@@ -4,6 +4,9 @@ import csv
 import json
 import sys
 
+sheet_columns = ["id", "#", "Category", "Item", "Qty", "Unit", "Mfg Date", "Exp Date"]
+data_columns  = ["id","number","category","item","qtyInitial","unit","mfgDate","expDate"]
+
 rows = []
 csvfile = 'SUPPLY.csv'
 if len(sys.argv) == 2:
@@ -14,7 +17,13 @@ with open(csvfile, newline='') as csvfile:
     for row in spamreader:
         rows.append(row)
 
-header = [i.lower() for i in rows[0]]
+csv_columns = rows[0]
+for i in range(len(csv_columns)):
+    if csv_columns[i] != sheet_columns[i]:
+        print('CSV has differing column names from expected !!')
+        sys.exit(1)
+    
+header = data_columns
 
 data = []
 n = len(header)

@@ -1,9 +1,12 @@
 
+const sheet_columns = ["id", "#", "Category", "Item", "Qty", "Unit", "Mfg Date", "Exp Date"];
+const data_columns  = ["id","number","category","item","qtyInitial","unit","mfgDate","expDate"];
 
-let data = JSON.parse(localStorage.getItem('remainingSupply')) || [];
+
+let data = JSON.parse(localStorage.getItem('SUPPLY')) || [];
 if (data.length == 0) {
-    localStorage.setItem('remainingSupply', JSON.stringify(data0))
-    data = JSON.parse(localStorage.getItem('remainingSupply'));
+    localStorage.setItem('SUPPLY', JSON.stringify(data0))
+    data = JSON.parse(localStorage.getItem('SUPPLY'));
 }
 
 let selectedItem = null;
@@ -17,7 +20,7 @@ function searchItems() {
         const filteredData = data.filter(item => item.item.toLowerCase().includes(query));
         filteredData.forEach(item => {
             const resultItem = document.createElement('p');
-            resultItem.textContent = `${item.item.slice(0, 40)}${item.item.length > 40 ? '...' : ''} -- Qty: ${item.qty} (${item.unit})`;
+            resultItem.textContent = `${item.item.slice(0, 40)}${item.item.length > 40 ? '...' : ''} -- Qty: ${item.qtyInitial} (${item.unit})`;
             resultItem.onclick = () => selectItem(item);
             resultsContainer.appendChild(resultItem);
         });
@@ -29,7 +32,7 @@ function selectItem(item) {
     selectedItem = item;
     document.getElementById('searchBar').value = item.item;
     document.getElementById('results').innerHTML = '';
-    document.getElementById('selectedItemName').textContent = `${item.item} / ${item.qty} (${item.unit})`;
+    document.getElementById('selectedItemName').textContent = `${item.item} / ${item.qtyInitial} (${item.unit})`;
     document.getElementById('selectedItem').classList.remove('hidden');
 }
 
@@ -74,21 +77,21 @@ function saveUsageLog(logEntry) {
 function updateSupplyByItemID_Amount(id, amount) {
     for (let i = 0; i < data.length; i++) {
         if (data[i].id == id) {
-            data[i].qty -= amount;
+            data[i].qtyInitial -= amount;
             break;
         }
     }
-    localStorage.setItem('remainingSupply', JSON.stringify(data));
+    localStorage.setItem('SUPPLY', JSON.stringify(data));
 }
 
 function updateSupplyByLogEntry(logEntry) {
     for (let i = 0; i < data.length; i++) {
         if (data[i].id == logEntry.id) {
-            data[i].qty -= logEntry.quantity;
+            data[i].qtyInitial -= logEntry.quantity;
             break;
         }
     }
-    localStorage.setItem('remainingSupply', JSON.stringify(data));
+    localStorage.setItem('SUPPLY', JSON.stringify(data));
 }
 
 function displayUsageLog() {
@@ -100,16 +103,7 @@ function displayUsageLog() {
     usageLog.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
 
     usageLog.forEach((entry) => {
-        /*
-        // Find the corresponding item in the data array based on the drugid
-        const item = data.find(item => item.id === entry.drugid);
-        if (!item) {
-            console.error(`Item not found for usage log entry with drugid: ${entry.drugid}`);
-            return; // Skip this entry if corresponding item not found
-        }
-        */
 
-        //const truncatedItemName = item.item.length > 40 ? item.item.slice(0, 40) + '...' : item.item;
         const truncatedItemName = entry.item.length > 40 ? entry.item.slice(0, 40) + '...' : entry.item;
 
         const row = document.createElement('tr');
@@ -195,13 +189,10 @@ function exportUsageToCSV() {
 }
 
 function exportRemainingToCSV() {
-    const data = JSON.parse(localStorage.getItem('remainingSupply')) || [];
+    const data = JSON.parse(localStorage.getItem('SUPPLY')) || [];
     if (data.length == 0) {
         return;
     }
-
-    const sheet_columns = ["id", "#", "Category", "Item", "Qty", "Unit", "Mfg Date", "Exp Date"];
-    const data_columns  = ["id","number","category","item","qty","unit","mfgDate","expDate"];
 
     let csv = "";
     csvHeadline = sheet_columns.join(",");
@@ -236,8 +227,13 @@ function exportRemainingToCSV() {
 function clearUsageData() {
     const confirmation = prompt("Are you sure you want to clear the usage data? Type 'YES' in capital letters to confirm.");
     if (confirmation === "YES") {
-        localStorage.removeItem('usageLog');
-        localStorage.removeItem('remainingSupply');
+
+        //localStorage.removeItem('usageLog');
+        //localStorage.removeItem('SUPPLY');
+
+        // Clear all data
+        localStorage.clear();
+
         location.reload();
         alert('Usage data cleared successfully.');
     } else {
