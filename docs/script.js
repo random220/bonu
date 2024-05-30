@@ -113,13 +113,13 @@ function displayUsageLog() {
         const truncatedItemName = entry.item.length > 40 ? entry.item.slice(0, 40) + '...' : entry.item;
 
         const row = document.createElement('tr');
-        const qty_initial = supply.filter(item => item.id == entry.id)[0]['qtyInitial'];
-        const qty_used = used[entry.id];
-        const qty_leftover = qty_initial - qty_used;
+        let qty_initial = supply.filter(item => item.id == entry.id)[0]['qtyInitial'];
+        let qty_used_total = used[entry.id].toFixed(2).replace(/\.00$/, '');
+        let qty_used_now = entry.quantity.toFixed(2).replace(/\.00$/, '');
         row.innerHTML = `
             <td>${truncatedItemName}</td>
-            <td>${entry.quantity}</td>
-            <td>${qty_used}/${qty_initial}</td>
+            <td>${qty_used_now}</td>
+            <td>${qty_used_total}/${qty_initial}</td>
             <td>${entry.timestamp}</td>
             <td>
                 <div class="button-container">
@@ -181,12 +181,16 @@ function exportUsageToCSV() {
     }
 
     // Construct CSV content
-    const csvContent = "Time-Stamp,Drug-Id,Quantity,Drug-Name\n" +
-        usageLog.map(entry => {
-            const drugName = entry.item ? `"${entry.item.replace(/"/g, '""')}"` : ''; // Handling undefined item
-            const timestamp = `"${entry.timestamp.replace(/"/g, '""')}"`; // Handling commas in timestamp
-            return `${timestamp},${entry.id},${entry.quantity},${drugName}`;
-        }).join("\n");
+    let csvContent = "Time-Stamp,Drug-Id,Used,TotalUsed,Supply,Leftover,Drug-Name\n";
+    usageLog.forEach(entry => {
+        const drugName = entry.item ? `"${entry.item.replace(/"/g, '""')}"` : ''; // Handling undefined item
+        const timestamp = `"${entry.timestamp.replace(/"/g, '""')}"`; // Handling commas in timestamp
+        const q_used_now = entry.quantity;
+        const q_used_total = used[entry.id];
+        const q_supply = supply.filter(item => item.id == entry.id)[0].qtyInitial;
+        const q_leftover = q_supply - q_used_total;
+        csvContent = csvContent + `${timestamp},${entry.id},${q_used_now},${q_used_total},${q_supply},${q_leftover},${drugName}` + "\n";
+    });
 
     // Create and download CSV file
     const blob = new Blob([csvContent], { type: 'text/csv' });
@@ -200,8 +204,12 @@ function exportUsageToCSV() {
 
 function exportRemainingToCSV() {
     const supply = JSON.parse(localStorage.getItem('SUPPLY')) || [];
+    const used = JSON.parse(localStorage.getItem('USED')) || [];
     if (supply.length == 0) {
         return;
+    }
+    for (i in supply) {
+        supply[i]['qtyInitial'] = supply[i]['qtyInitial'] - used[supply[i].id];
     }
 
     let csv = "";
