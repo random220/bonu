@@ -4,9 +4,19 @@ const data_columns  = ["id","number","category","item","qtyInitial","unit","mfgD
 
 
 let data = JSON.parse(localStorage.getItem('SUPPLY')) || [];
+let used = JSON.parse(localStorage.getItem('USED')) || {};
+
 if (data.length == 0) {
     localStorage.setItem('SUPPLY', JSON.stringify(data0))
     data = JSON.parse(localStorage.getItem('SUPPLY'));
+
+}
+
+if (Object.keys(used).length == 0) {
+    data.forEach(item => {
+        used[item.id] = 0;
+    });
+    localStorage.setItem('USED', JSON.stringify(used))
 }
 
 let selectedItem = null;
@@ -43,9 +53,12 @@ function submitUsage() {
         return;
     }
 
-    const quantity = parseFloat(usageInput);
-    //if (isNaN(quantity) || quantity <= 0) {
-    if (isNaN(quantity)) {
+
+    let quantity = 0;
+    try {
+        quantity = eval(usageInput);
+    }
+    catch(err) {
         alert('Please enter a valid number for the quantity.');
         return;
     }
