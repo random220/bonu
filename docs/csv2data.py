@@ -33,5 +33,7 @@ for row in rows[1:]:
         blob[header[i]] = row[i]
     data.append(blob)
 
+print('const supply0 =');
 print(json.dumps(data, indent=4))
+print(';')
 
