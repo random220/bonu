@@ -535,7 +535,7 @@ const supply0 =
         "number": "54",
         "category": "Drug",
         "item": "Vitamin B-Complex (each 5 ml contains) Vitamin B2: 1.25 mg d-panthenol : 0.65 mg Vitamin B6: 0.62mg. Vitamin B12: 6.25 mcg. Biotin: 25 mcg. Nicotinamide : 18.75 mg. Choline Chloride: 10 mg. Lysin mono hydrochloride: 10 mg.",
-        "qtyInitial": "4",
+        "qtyInitial": "1",
         "unit": "5 Litre Poly jar",
         "mfgDate": "01/12/2022",
         "expDate": "30/11/2024"
