@@ -160,12 +160,21 @@ function editUsage(timestamp) {
         const entry = usageLog[entryIndex];
         const entryId = entry.id;
         const oldQuantity = entry.quantity;
-        const newQuantity = prompt(`Edit quantity for ${entry.item}:`, entry.quantity);
-        if (newQuantity !== null) {
+        const newQuantityText = prompt(`Edit quantity for ${entry.item}:`, entry.quantity);
+        let newQuantity;
+        try {
+            newQuantity = eval(newQuantityText);
+        }
+        catch(err) {
+            alert('Please enter a valid number for the quantity.');
+            return;
+        }
+
+        if ((newQuantity !== oldQuantity) && (newQuantity != null)){
             entry.quantity = newQuantity;
             localStorage.setItem('usageLog', JSON.stringify(usageLog));
-            displayUsageLog();
             updateUsedByItemID_Amount(entryId, newQuantity - oldQuantity);
+            displayUsageLog();
         }
     } else {
         alert('Entry not found.');
