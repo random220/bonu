@@ -21,6 +21,16 @@ if (Object.keys(used).length == 0) {
 
 let selectedItem = null;
 
+function getParams() {
+    const p = new URLSearchParams(window.location.search);
+    const p_iterator = p.entries();
+    const kv_pairs = [...p_iterator];
+    let params = {};
+    params['params'] = Object.fromEntries(kv_pairs);
+    params['url'] = window.location.href;
+    return params;
+}
+
 function searchItems() {
     const query = document.getElementById('searchBar').value.toLowerCase().trim();
     const resultsContainer = document.getElementById('results');
@@ -113,6 +123,8 @@ function updateUsedByLogEntry(logEntry) {
 }
 
 function displayUsageLog() {
+    const p = getParams();
+    p.url = p.url.replace(/\?.*/, '');
     const usageLog = JSON.parse(localStorage.getItem('usageLog')) || [];
     const usageLogTableBody = document.getElementById('usageLog').querySelector('tbody');
     usageLogTableBody.innerHTML = '';
@@ -129,7 +141,7 @@ function displayUsageLog() {
         let qty_used_total = used[entry.id].toFixed(2).replace(/\.00$/, '');
         let qty_used_now = entry.quantity.toFixed(2).replace(/\.00$/, '');
         row.innerHTML = `
-            <td>${truncatedItemName}</td>
+            <td><a href="${p.url}?id=${entry.id}" class="undecorated-link">${truncatedItemName}</a></td>
             <td>${qty_used_now}</td>
             <td>${qty_used_total}/${qty_initial}</td>
             <td>${entry.timestamp}</td>
