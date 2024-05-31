@@ -27,11 +27,23 @@ function searchItems() {
     resultsContainer.innerHTML = '';
 
     if (query) {
-        const filteredData = supply.filter(item => item.item.toLowerCase().includes(query));
+        //const filteredData = supply.filter(thing => thing.item.toLowerCase().includes(query));
+        const filteredData = supply.filter(thing => {
+            if (thing.item.toLowerCase().includes(query)) {
+                return true;
+            }
+            else if (thing.id.includes(query)) {
+                return true;
+            }
+            else if (thing.number.includes(query)) {
+                return true;
+            }
+            return false;
+        });
         filteredData.forEach(item => {
             const resultItem = document.createElement('p');
             const qty = item.qtyInitial - used[item.id];
-            resultItem.textContent = `${item.item.slice(0, 40)}${item.item.length > 40 ? '...' : ''} -- Qty: ${qty} (${item.unit})`;
+            resultItem.textContent = `${item.number}:${item.id}:${item.item.slice(0, 40)}${item.item.length > 40 ? '...' : ''} -- Qty: ${qty} (${item.unit})`;
             resultItem.onclick = () => selectItem(item);
             resultsContainer.appendChild(resultItem);
         });
