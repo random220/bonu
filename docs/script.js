@@ -33,7 +33,7 @@ function getParams() {
 
 window.onload = function() {
     const p = getParams();
-    if (! 'id' in p.params) {
+    if (! ('id' in p.params)) {
         return;
     }
     id = p.params.id;
@@ -295,7 +295,7 @@ function clearUsageData() {
         // Clear all data
         localStorage.clear();
 
-        location.reload();
+        location.replace(location.origin + location.pathname);
         alert('Usage data cleared successfully.');
     } else {
         alert('Clear operation canceled.');
@@ -303,7 +303,7 @@ function clearUsageData() {
 }
 
 function reloadPage() {
-    location.reload();
+    location.replace(location.origin + location.pathname);
 }
 
 // Initialize the usage log display
