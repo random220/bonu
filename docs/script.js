@@ -31,6 +31,16 @@ function getParams() {
     return params;
 }
 
+window.onload = function() {
+    const p = getParams();
+    if (! 'id' in p.params) {
+        return;
+    }
+    id = p.params.id;
+    const item = supply.filter(thing => thing.id == id)[0];
+    selectItem(item);
+}
+
 function searchItems() {
     const query = document.getElementById('searchBar').value.toLowerCase().trim();
     const resultsContainer = document.getElementById('results');
